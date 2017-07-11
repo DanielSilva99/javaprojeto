@@ -76,4 +76,5 @@ public class AutenticacaoBean {
 		}
 		return false;
 	}
+	//foi louco cara
 }

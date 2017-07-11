@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+.imagemcentralizada{
+	
+	display: block;
+	margin-left: auto;
+	margin-right:auto ;
+	padding-left: 20px;
+}
+
+.divtopo{
+	
+	padding-bottom: 7px;
+}
+
+.divcabecalho{
+	
+	padding-bottom: 7px;
+	
+}
+
+.divtopo h1{
+	
+	font-size: 26px;
+	font-family: sans-serif;
+	font-style: italic;
+	color: blue;
+}

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.2.final using JasperReports Library version 6.2.2  -->
+<!-- 2016-05-28T13:33:38 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="produtos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cc1b8897-9264-476a-b0a2-5af3fe5f0a06">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Lojacarros Data Adapter "/>
+	<queryString>
+		<![CDATA[SELECT lojacarros.produto.descricao AS pdescricao,
+	lojacarros.produto.quantidade,
+	lojacarros.fabricante.descricao AS fdescricao
+FROM lojacarros.produto
+	INNER JOIN lojacarros.fabricante ON 
+	 lojacarros.produto.fabricante_codigo = lojacarros.fabricante.codigo 
+ORDER BY lojacarros.produto.descricao ASC,
+	lojacarros.fabricante.descricao ASC]]>
+	</queryString>
+	<field name="pdescricao" class="java.lang.String"/>
+	<field name="quantidade" class="java.lang.Integer"/>
+	<field name="fdescricao" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50">
+			<staticText>
+				<reportElement x="80" y="0" width="380" height="30" uuid="9be3d175-bd6f-45ef-afca-7be0c371e526"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORTE APACHE DISTRIBUIDORA DF]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="60">
+			<staticText>
+				<reportElement x="180" y="10" width="310" height="30" uuid="7fc08bf2-0bc7-45cc-a530-41b6c7871a4e"/>
+				<textElement>
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RELATORIO DE PRODUTOS]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="30" uuid="c128d1d1-e139-4205-a437-6f415bfe92bf"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="20" width="100" height="30" uuid="6e8baffc-6125-4ba0-80df-a998a2e81e95"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QUANTIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="10" width="100" height="30" uuid="f9b0fdf4-3c02-45bc-94e5-6327253f5c7c"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FABRICANTE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="46">
+			<textField>
+				<reportElement x="200" y="10" width="100" height="30" uuid="4e09ba8c-f513-4f7d-8720-c6801439e301"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="10" width="100" height="30" uuid="216c4b77-40b7-41bd-b0e0-e3ef944f1a15"/>
+				<textFieldExpression><![CDATA[$F{pdescricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="10" width="100" height="30" uuid="ec1546bd-7149-482b-b53f-47bb4b3ad18e"/>
+				<textFieldExpression><![CDATA[$F{fdescricao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="30" width="550" height="30" uuid="dced34f1-be0b-4b3b-adff-a6ab9337b88c"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUA FORTE APACHE,BAIRRO MESSEJANA,FORTALEZA CE]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

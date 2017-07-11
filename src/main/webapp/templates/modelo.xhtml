@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+	<ui:insert name="metadata"/>
+	
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Sistema acessorios</title>
+	<h:outputStylesheet library="css" name="estilos.css" />
+	<h:outputScript library="js" name="scripts.js" />
+	
+</h:head>
+<h:body>
+	<p:growl id="mensagem" />
+
+	<div id="geral">
+		<div id="topo" class="divtopo">
+		<h1><h:outputText value="Usuário : #{autenticacaoBean.usuarioLogado.pessoa.nome}"/></h1>	
+				
+		</div>
+
+		<div id="cabecalho" class="divcabecalho">
+		  
+			<h:form id="formMenu">
+				<p:menubar>
+					<p:submenu label="Arquivo">
+						<p:menuitem value="Sair" action="#{autenticacaoBean.sair}" />
+					</p:submenu>
+
+					<p:submenu label="Cadastros" rendered="#{autenticacaoBean.temPermissoes(['A','B'])}">
+						<p:menuitem value="Fabricante" url="/pages/fabricantes.xhtml" rendered="#{autenticacaoBean.temPermissoes(['A'])}"/>
+						<p:menuitem value="Produto" url="/pages/produtos.xhtml" rendered="#{autenticacaoBean.temPermissoes(['A'])}"/>
+						<p:menuitem value="Pessoa" url="/pages/pessoas.xhtml" rendered="#{autenticacaoBean.temPermissoes(['A','B'])}"/>
+						<p:menuitem value="Cliente" url="/pages/clientes.xhtml" rendered="#{autenticacaoBean.temPermissoes(['A','B'])}"/>
+						<p:menuitem value="Vendas Listagem" url="vendaslistagem.xhtml" rendered="#{autenticacaoBean.temPermissoes(['A'])}"/>
+					</p:submenu>
+
+					<p:submenu label="Movimentações">
+						
+						<p:menuitem value="Venda" url="/pages/vendas.xhtml" />
+					</p:submenu>
+				</p:menubar>
+			</h:form>
+		</div>
+
+		<div id="conteudo">
+			<ui:insert name="conteudo" />
+		</div>
+	</div>
+
+</h:body>
+</html>

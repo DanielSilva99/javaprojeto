@@ -76,4 +76,6 @@ public class AutenticacaoBean {
 		}
 		return false;
 	}
+	
 }
+	
